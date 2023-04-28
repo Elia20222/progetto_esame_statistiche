@@ -2,6 +2,12 @@
     height: var(--altezza-footer); /*calcolo il padding dalla altezza del footer */
     padding: 20px;
     background-color: var(--success);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+
+    
 
     
     
@@ -16,4 +22,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }

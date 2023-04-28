@@ -1,4 +1,4 @@
-html, body { background-color: var(--dark);
+html, body { background-color: var(--info);
     color:var(--secondary) }
 body { 
 padding-bottom: calc(var(--altezza-footer) + 30px);
@@ -14,7 +14,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     --warning:#ffcd03;
     --success:#459d68;
     --info:#a8cadc;
-    --dark:rgb(121, 128, 152);
+    --dark:rgb(0, 0, 0);
     --altezza-footer:50px;
     --primary-hover:#461a74;
 }

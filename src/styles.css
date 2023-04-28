@@ -11,10 +11,22 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 :root{
     --primary:#3956e6;
     --secondary:#ec3232;
-    --warning:#ffcd03;
-    --success:#459d68;
+    --warning:#f7e391;
+    --success:#e0ffc4;
     --info:#a8cadc;
     --dark:rgb(0, 0, 0);
-    --altezza-footer:50px;
+    --altezza-footer:90px;
     --primary-hover:#461a74;
 }
+
+.centrainlinea {
+    display: flex;
+    justify-content: space-around;
+    font-size: 35px !important;
+    height: var(--altezza-footer);
+
+}
+
+.centrainlinea button{
+    font-size: 30px;
+} 

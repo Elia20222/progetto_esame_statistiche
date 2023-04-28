@@ -1,21 +1,17 @@
 .footer{
     height: var(--altezza-footer); /*calcolo il padding dalla altezza del footer */
     padding: 20px;
-    background-color: var(--success);
+    background-color: var(--warning);
     position: absolute;
     bottom: 0;
     width: 100%;
-    
 
-    
 
-    
-    
     /* white-space: pre; non usare */
 }
 .footer a{
     color: var(--warning);
-    padding-bottom: 100%;
+    
 }
 
 .centraintestazione{

@@ -7,13 +7,35 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
+import { ClassificaComponent } from './components/classifica/classifica.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
+import { DataEOraComponent } from './components/data-eora/data-eora.component';
+import { MatTableModule } from '@angular/material/table';
+//import { MatDateFormats } from '@angular/material/core';
+//import { MatDatePicker }
+import { MatNativeDateModule } from '@angular/material/core';
+import { DatapickerComponent } from './datapicker/datapicker.component';
+import { PunteggiovittoriaComponent } from './components/punteggiovittoria/punteggiovittoria.component';
+import { RicercaComponent } from './ricerca/ricerca.component';
+
+//import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 //import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ClassificaComponent,
+    DataEOraComponent,
+    DatapickerComponent,
+    PunteggiovittoriaComponent,
+    RicercaComponent,
+    
+    
     
   ],
   imports: [
@@ -21,6 +43,16 @@ import { HeaderComponent } from './components/header/header.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    MatTableModule,
+    MatNativeDateModule
+    //MatDateFormats
+    
+    
+    
+    
     
   ],
   providers: [],

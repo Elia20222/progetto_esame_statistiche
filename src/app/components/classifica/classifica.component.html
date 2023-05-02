@@ -1,0 +1,53 @@
+<div matDialogTitle>
+    Classifiche Sportive
+
+    <!-- Position Column -->
+      <ng-container matColumnDef="classificazionenumero">
+        <th mat-header-cell *matHeaderCellDef> TOP </th>
+        <td mat-cell *matCellDef="let element"> {{element.classificatop}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sport">
+        <th mat-header-cell *matHeaderCellDef> SPORT </th>
+        <td mat-cell *matCellDef="let element"> {{element.sport}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="squadra">
+        <th mat-header-cell *matHeaderCellDef> SQUADRA </th>
+        <td mat-cell *matCellDef="let element"> {{element.squadre}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="atleta">
+        <th mat-header-cell *matHeaderCellDef> ATLETA </th>
+        <td mat-cell *matCellDef="let element"> {{element.atleta}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="winners">
+        <th mat-header-cell *matHeaderCellDef> VITTORIE </th>
+        <td mat-cell *matCellDef="let element"> {{element.atleta}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <!--<ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator> -->
+</div>
+  
+<div matDialogActions class= "text-center">
+    <input class="click" onclick="Submit()">
+    <button class="esci()" (click)="esci()">
+        Esci
+    </button>
+</div>

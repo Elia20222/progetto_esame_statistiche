@@ -1,11 +1,16 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LocalstorageService } from 'src/app/localstorage.service';
 import { ApiService } from 'src/app/services/api.service';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Squadra } from 'src/app/squadra';
+import { ServizioclassificheService } from 'src/app/servizioclassifiche.service';
+
+
+
+
 
 
 
@@ -17,53 +22,56 @@ const SerieDiClassifica = "classifica"
   styleUrls: ['./classifica.component.css']
 })
 export class ClassificaComponent {
- //classifica: { nome: string, punteggio: number }[] = []
-  classifica:any
-  // [{punteggio:300000},{punteggio:50}]
-  indiceUtente: number = -1;
+
+  Squadra!: Squadra
+  squadre: Squadra []= []
+  data:any
+  dataSource: any;
+  competitionId: number = 103
   
-  squadre: Squadra[]=[];
-  ricerca: string = "";
-  //a_data: number;
-  //da_data: number
-  //form: FormGroup;
+  constructor(private Apiservice : ApiService, public ServizioclassificheService:ServizioclassificheService){
+   this.getlistasquadre(),
+   this.getlistaTipiDiSport()
+  }
+  getlistasquadre(){
+    this.Apiservice.getRisultati(this.competitionId).subscribe(res=>{
+      this.Squadra = res
+      this.dataSource = new MatTableDataSource(res.competitors)
+      console.log('listasquadre', this.Squadra)
+    })
+  }
 
-  constructor(
-  //private dialog: MatDialogRef<ClassificaComponent>,
-  //public punteggiovittoria:MatDialogRef<ClassificaComponent>,
-     
-    private fb: FormBuilder,
-    private api:ApiService,
-    private storage:LocalstorageService ) {
-    console.log("dato")
-      this.getDati()
-    var temp = localStorage.getItem(SerieDiClassifica)
-    if(temp != null){
-      this.classifica = JSON.parse(temp) // "{"nome":"mario"}" -> {nome:'mario'} // la prima è una stringa la seconda è un oggetto
-    }
-     this.classifica=[
-      //  {nome:'tizio', punteggiovittoria:50},
-      //  {nome:'tizia', punteggiovittoria:20},
-      //  {nome:'tiziano', punteggiovittoria:10},
-    ]
-    
+  getlistaTipiDiSport(){
 
-   
+  }
+  @Output() cambioSport: EventEmitter<any> = new EventEmitter
+  displayedColumns: string[] = ['TOP', 'SPORTNAME', 'SQUADRE', 'ATLETI', 'NAZIONE', 'VITTORIE'];
+  
+    //classifica: { nome: string, punteggio: number }[] = []
+    classifica:any
+    // [{punteggio:300000},{punteggio:50}]
+    indiceUtente: number = -1;
+  
+  
+    ricerca: string = "";
+    //a_data: number;
+    //da_data: number
+    //form: FormGroup;
 
-}
+ 
 
 getDati(){
-  this.classifica= this.api.getfakerisultati()
+  this.classifica= this.Apiservice.getfakerisultati()
   this.squadre= this.classifica.competitors
   console.log("squadre", this.squadre)
   console.log("classifica")
   // this.api.getRisultati("name", "idsport").subscribe((res) => {
 
   //   //console.log(res)
-  //   this.classifica.countries = this.classifica.slice()
-  //   this.classifica.sportID = this.classifica.slice()
-  //   this.classifica.name = this.classifica.slice()
-  //   this.classifica.score = this.classifica.slice()
+     //this.classifica.countries = this.classifica.slice()
+     //this.classifica.sportID = this.classifica.slice()
+     //this.classifica.name = this.classifica.slice()
+     //this.classifica.score = this.classifica.slice()
 
 
   //   this.classifica = res

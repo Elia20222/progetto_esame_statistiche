@@ -14,15 +14,23 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { DataEOraComponent } from './components/data-eora/data-eora.component';
 import { MatTableModule } from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 //import { MatDateFormats } from '@angular/material/core';
 //import { MatDatePicker }
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatapickerComponent } from './datapicker/datapicker.component';
 import { PunteggiovittoriaComponent } from './components/punteggiovittoria/punteggiovittoria.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
-
+import { DialogComponent } from './dialog/dialog.component';
+import { ChisiamoComponent } from './chisiamo/chisiamo.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { GareEComponent } from './components/gare-e/gare-e.component';
+import { GareIComponent } from './components/gare-i/gare-i.component';
 //import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 //import { MatTableModule } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +42,12 @@ import { RicercaComponent } from './ricerca/ricerca.component';
     DatapickerComponent,
     PunteggiovittoriaComponent,
     RicercaComponent,
+    DialogComponent,
+    ChisiamoComponent,
+    GareEComponent,
+    GareIComponent,
+    
+    
     
     
     
@@ -47,7 +61,12 @@ import { RicercaComponent } from './ricerca/ricerca.component';
     MatInputModule,
     FormsModule,
     MatTableModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatButtonModule,
+    MatProgressBarModule,
+    
+    
+    
     //MatDateFormats
     
     

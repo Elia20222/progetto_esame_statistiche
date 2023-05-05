@@ -1,33 +1,129 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private API_URL= 'https://therundown-therundown-v1.p.rapidapi.com';
-  private API_SPORT= 'https://therundown-therundown-v1.p.rapidapi.com/sports';
+  private API_URL= 'https://allscores.p.rapidapi.com/api/allscores';
+  private API_SPORT= 'https://allscores.p.rapidapi.com/api/allscores/sports';
   private API_SQUADRE= 'https://therundown-therundown-v1.p.rapidapi.com/sports/2/teams';
   private API_RISULTATI= 'https://allscores.p.rapidapi.com/api/allscores/results';
   private API_STATO= 'https://allscores.p.rapidapi.com/api/allscores/stats';
   private API_ATLETI= 'https://allscores.p.rapidapi.com/api/allscores/top-athletes'
   private API_PUNTEGGI= 'https://allscores.p.rapidapi.com/api/allscores/custom-scores'
-  constructor(private htpp: HttpClient) {
-   
-   }
+  private API_GIOCHI= 'https://allscores.p.rapidapi.com/api/allscores/games-scores'
+  private API_CALENDARIO ='https://sofascores.p.rapidapi.com/v1/calendar/daily-unique-tournaments'
+   constructor(private http: HttpClient) { }
 
-   getRisultati(sportID:number, timezone: "America/Chicago"){
-    return this.htpp.get<any>(this.API_RISULTATI,{
+
+  httpHeader = {
+    headers: new HttpHeaders({
+    'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8',
+    'X-RapidAPI-Host': 'allscores.p.rapidapi.com'
+    })
+  }
+  getSquadre():Observable<any>{
+
+    return this.http.get<any>('https://allscores.p.rapidapi.com/api/allscores/sports', {headers: this.httpHeader.headers})
+
+  }
+   getRisultati(competition:number){
+    return this.http.get<any>(this.API_RISULTATI,{
      params:{
+      langId: 1,
+      timezone: "America/Chicago",
+      competition: competition,
       
-      sportID:sportID,
-      timezone:timezone
+      
+      //competition: competition
       //include: include,
       //affiliate_ids: affiliate_ids,
       //offset: offset
      },
      headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
     })
+  }
+
+
+  getCalendario(startDate:string, langId: number, sport:number, endDate:string, timezone:"America/Chicago"){ //api diverso allscores
+    return this.http.get<any>(this.API_CALENDARIO,{
+    params:{
+
+    startDate: startDate,
+    timezone: timezone,
+    langId: langId,
+    sport: sport,
+    endDate: endDate
+    //withCount: withCount
+     },
+     headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
+    })
+  }
+
+
+  getGiochi(sport_id: number, timezone:"America/Chicago", month:string){ //api diverso allscores
+    return this.http.get<any>(this.API_GIOCHI,{
+    params:{
+      sport_id:sport_id,
+      timezone:timezone,
+      month:month
+    //withCount: withCount
+     },
+     headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
+    })
+  }
+
+
+  getSport(timezone:"America/Chicago", langId: number,){ //api diverso allscores
+    return this.http.get<any>(this.API_SPORT,{
+    params:{
+    timezone: timezone,
+    langId: langId,
+    //withCount: withCount
+     },
+     headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
+    })
+  }
+
+  getNazione(langId:1, sportId: number, timezone:"America/Chicago", ){ //api diverso allscores
+    return this.http.get<any>(this.API_STATO,{
+      params:{
+        langId:langId,
+        timezone:timezone,
+        sportId:sportId
+      //withCount: withCount
+       },
+       headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
+      })
+  }
+
+  getPunteggi(langId:1, timezone:"America/Chicago", startDate: string, endDate: string){ //api diverso allscores
+    return this.http.get<any>(this.API_PUNTEGGI,{
+      params:{
+        langId:langId,
+        timezone:timezone,
+        startDate:startDate,
+        endDate:endDate
+        //withCount: withCount
+       },
+       headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
+      })
+  }
+
+  getAtleta(langId:1,timezone: "America/Chicago", limit: number, sportType: number){ //api diverso allscores
+    return this.http.get<any>(this.API_ATLETI,{
+      params:{
+        langId:langId,
+        timezone:timezone,
+        limit: limit,
+        sportType: sportType
+        //withCount: withCount
+       },
+       headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
+      })
   }
 
 
@@ -5459,57 +5555,5 @@ export class ApiService {
       "ttl": 300
     }
   }
-  getSquadre(sportID:string){
-    return this.htpp.get<any>(this.API_SQUADRE,{
-     params:{
-      sportID:sportID
-      //normalized_teams: normalized_teams,
-     }
-    })
   }
-
-  getSport(timezone:"America/Chicago", langId: number,){ //api diverso allscores
-    return this.htpp.get<any>(this.API_SPORT,{
-    params:{
-    timezone: timezone,
-    langId: langId,
-    //withCount: withCount
-     }
-    })
-  }
-
-  getNazione(langId:1, sportId: number, timezone:"America/Chicago", ){ //api diverso allscores
-    return this.htpp.get<any>(this.API_STATO,{
-      params:{
-        langId:langId,
-        timezone:timezone,
-        sportId:sportId
-      //withCount: withCount
-       }
-      })
-  }
-
-  getPunteggi(langId:1, timezone:"America/Chicago", startDate: string, endDate: string){ //api diverso allscores
-    return this.htpp.get<any>(this.API_PUNTEGGI,{
-      params:{
-        langId:langId,
-        timezone:timezone,
-        startDate:startDate,
-        endDate:endDate
-        //withCount: withCount
-       }
-      })
-  }
-
-  getAtleta(langId:1,timezone: "America/Chicago", limit: number, sportType: number){ //api diverso allscores
-    return this.htpp.get<any>(this.API_ATLETI,{
-      params:{
-        langId:langId,
-        timezone:timezone,
-        limit: limit,
-        sportType: sportType
-        //withCount: withCount
-       }
-      })
-  }}
 

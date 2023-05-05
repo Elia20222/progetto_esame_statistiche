@@ -7,24 +7,24 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./ricerca.component.css']
 })
 export class RicercaComponent {
-  //CLASSIFICASCELTA!: string;
-  ricerca: string = "";
-  datiSport: string [] = []; // dichiaro l'oggetto sport inizializzato da array che contirnr array
+  CLASSIFICASCELTA!: string;
+  ricerca: any = "";
+  datiSport: any [] = []; // dichiaro l'oggetto sport inizializzato da array che contirnr array
   @Output() cambioSport: EventEmitter<any> = new EventEmitter
   
   constructor(private api:ApiService) { }
   
-
-  cerca(ricerca: string){
-    this.ricerca=ricerca
-    console.log(ricerca)
-  }
-
-
   sportScelto(sport: string){
     this.cambioSport.emit(sport) // 
     this.ricerca = ""
     this.datiSport= []
+  }
+  cerca(ricerca: string){
+    //this.api.getSport<any>(this.ricerca).subscribe((res)=>{
+     // this.datiSport = res.results
+    //})
+    this.ricerca=ricerca
+    console.log(ricerca)
   }
 
  

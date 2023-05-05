@@ -21,15 +21,17 @@ export class PunteggiovittoriaComponent {
   tornei: [] = []
   datatornei: number | any
   giorni: string[] = [] // date dei giorni
+  competitionId: number = 103
   
   title = 'progetto_esame_statistiche';
   constructor(private api:ApiService){
-    this.api.getRisultati(this.risultati.sportID, this.risultati.timezone).subscribe((res)=>{
+    this.api.getRisultati(this.competitionId).subscribe((res)=>{
       
       
       this.risultati = res.hourly,
       this.risultatocorrente.sportID= this.risultati.sportID.slice()
       this.risultatocorrente.timezone= this.risultati.timezone.slice()
+      this.risultatocorrente.timezone= this.risultati.competition.slice()
       console.log(res)
     })
     

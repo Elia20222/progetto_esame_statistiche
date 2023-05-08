@@ -7,8 +7,11 @@ export interface Squadra {
     games: string,
     score: number,
     popularityRank: number, //top giocatori in numero
-    totalGames: number
-
+    totalGames: number,
+    nameForURL: ImageBitmap,
+    countryId: number,
+    sportType: number,
+    sports: string
     
 
 }

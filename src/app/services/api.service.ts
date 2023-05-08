@@ -9,13 +9,13 @@ import { Observable } from 'rxjs';
 export class ApiService {
   private API_URL= 'https://allscores.p.rapidapi.com/api/allscores';
   private API_SPORT= 'https://allscores.p.rapidapi.com/api/allscores/sports';
-  private API_SQUADRE= 'https://therundown-therundown-v1.p.rapidapi.com/sports/2/teams';
+  private API_SQUADRE= 'https://therundown-therundown-v1.p.rapidapi.com/sports/2/teams'; //api di therundown
   private API_RISULTATI= 'https://allscores.p.rapidapi.com/api/allscores/results';
   private API_STATO= 'https://allscores.p.rapidapi.com/api/allscores/stats';
-  private API_ATLETI= 'https://allscores.p.rapidapi.com/api/allscores/top-athletes'
-  private API_PUNTEGGI= 'https://allscores.p.rapidapi.com/api/allscores/custom-scores'
-  private API_GIOCHI= 'https://allscores.p.rapidapi.com/api/allscores/games-scores'
-  private API_CALENDARIO ='https://sofascores.p.rapidapi.com/v1/calendar/daily-unique-tournaments'
+  private API_ATLETI= 'https://allscores.p.rapidapi.com/api/allscores/top-athletes';
+  private API_PUNTEGGI= 'https://allscores.p.rapidapi.com/api/allscores/custom-scores';
+  private API_GIOCHI= 'https://allscores.p.rapidapi.com/api/allscores/games-scores';
+  private API_CALENDARIO ='https://sofascores.p.rapidapi.com/v1/calendar/daily-unique-tournaments' //api di sofascore
    constructor(private http: HttpClient) { }
 
 
@@ -27,7 +27,9 @@ export class ApiService {
   }
   getSquadre():Observable<any>{
 
-    return this.http.get<any>('https://allscores.p.rapidapi.com/api/allscores/sports', {headers: this.httpHeader.headers})
+    return this.http.get<any>('https://allscores.p.rapidapi.com/api/allscores/results', {
+      
+    headers: this.httpHeader.headers})
 
   }
    getRisultati(competition:number){
@@ -77,22 +79,23 @@ export class ApiService {
   }
 
 
-  getSport(timezone:"America/Chicago", langId: number,){ //api diverso allscores
+  getSport( timezone:"America/Chicago" ){ //api diverso allscores
     return this.http.get<any>(this.API_SPORT,{
     params:{
     timezone: timezone,
-    langId: langId,
+    langId: 1,
+    //sportType: sportType
     //withCount: withCount
      },
      headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
     })
   }
 
-  getNazione(langId:1, sportId: number, timezone:"America/Chicago", ){ //api diverso allscores
+  getNazione(langId:1, sportId: number ){ //api diverso allscores
     return this.http.get<any>(this.API_STATO,{
       params:{
         langId:langId,
-        timezone:timezone,
+        timezone:"America/Chicago",
         sportId:sportId
       //withCount: withCount
        },

@@ -9,16 +9,23 @@
    
    <ng-container matColumnDef="ATLETI">
     <th mat-header-cell *matHeaderCellDef> ATLETI </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} {{element.nameForURL}}
-      <span>{{Servizioatleti.getGiocatori(element.name)}}</span></td>
-    
+    <td mat-cell *matCellDef="let element">
+      <!-- <span class="stileatltxt">{{Servizioatleti.getGiocatori(element.imageVersion)}}</span>
+      <span class="stileatltxt">{{Servizioatleti.getGiocatori(element.athletes)}}</span> -->
+      <div class="d-inline ml-3">
+        <!-- <button class="btn btn-warning" (click)="condividi()">
+            <i class="bi bi-share"></i>
+        </button> -->
+    </div>
+      </td>
+      
   </ng-container>
 
   
   <ng-container matColumnDef="NAZIONE">
     <th mat-header-cell *matHeaderCellDef> NAZIONE </th>
-    <td mat-cell *matCellDef="let element"> {{element.countries}} {{element.nameForURL}}
-      <span>{{Serviziocontries.getcountrie(element.countryId)}}</span>
+    <td mat-cell *matCellDef="let element">
+      <span class="stilenatttxt">{{Serviziocontries.getcountrie(element.countryId)}}</span>
     </td>
     
     
@@ -27,15 +34,15 @@
  
   <ng-container matColumnDef="SPORTNAME">
     <th mat-header-cell *matHeaderCellDef> SPORT </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}}
-      <span class="stilesporttxt">{{ServizioclassificheService.getSportdifferenti(element.name)}}</span>
+    <td mat-cell *matCellDef="let element"> 
+      <span class="stilesporttxt">{{Serviziotipidisport.getsports(element.sportId)}}</span>
     </td>
   </ng-container>
 
   
   <ng-container matColumnDef="SQUADRE">
     <th mat-header-cell *matHeaderCellDef> SQUADRE </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}}
+    <td mat-cell *matCellDef="let element"> <span class="stilesquadetxt">{{element.name}}</span>
       <!--<span>{{classifica.getlistasquadre(element.name)}}</span>-->
     </td>
   </ng-container>

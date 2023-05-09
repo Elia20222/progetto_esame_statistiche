@@ -11,12 +11,12 @@ const routes: Routes = [
   },
 
   {
-    path:'gareinvernali', //se metto /classifiche o /classifiche/ non funziona
+    path:'contatti', //se metto /classifiche o /classifiche/ non funziona
     component:GareIComponent 
   },
 
   {
-    path:'gareestive', //se metto /classifiche o /classifiche/ non funziona
+    path:'gare', //se metto /classifiche o /classifiche/ non funziona
     component:GareEComponent
   },
 ];

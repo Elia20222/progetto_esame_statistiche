@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LocalstorageService } from 'src/app/localstorage.service';
 import { ApiService } from 'src/app/services/api.service';
@@ -10,11 +10,10 @@ import { ServizioclassificheService } from 'src/app/servizioclassifiche.service'
 import { DataSource } from '@angular/cdk/collections';
 import { ServiziocontriesService } from 'src/app/serviziocontries.service'
 import { ServizioatletiService } from 'src/app/servizioatleti.service';
-
-
-
-
-
+import { ServiziotipidisportService } from 'src/app/serviziotipidisport.service';
+import { POPUPatletiComponent } from '../popupatleti/popupatleti.component';
+import { DialogRef } from '@angular/cdk/dialog';
+import { DatiAtleti } from 'src/app/dati-atleti';
 
 const SerieDiClassifica = "classifica"
 
@@ -32,23 +31,33 @@ export class ClassificaComponent implements OnInit{
   competitionId: number = 103;
   langId: number [] = []
   sportType: number | undefined
+  sportId: number | undefined
+  countryId: number | undefined
+  AthletesId: number | undefined
   public displayColumn: string []= ['TOP', 'SPORTNAME', 'SQUADRE', 'ATLETI', 'NAZIONE', 'VITTORIE']
 
   constructor(
     private Apiservice : ApiService,
     public ServizioclassificheService:ServizioclassificheService,
     public Serviziocontries:ServiziocontriesService,
-    public Servizioatleti: ServizioatletiService
+    public Servizioatleti: ServizioatletiService,
+    public Serviziotipidisport: ServiziotipidisportService,
+    //public MatDialogModule: MatDialogModule,
+    public dialog: MatDialog,
+    //public DatiAtleti:DatiAtleti
+    
     )
     
     {
-   this.getlistasquadre(),
-   this.getlistaTipiDiSport(),
-   this.getDati()
+    this.getlistasquadre(),
+    this.getlistaTipiDiSport(),
+    this.getDati()
+   
+   
   }
 
   ngOnInit(): void {
-    this.getlistasquadre();
+  //   this.getlistasquadre();
   }
   getlistasquadre(){
     this.Apiservice.getRisultati(this.competitionId).subscribe(res=>{
@@ -59,6 +68,12 @@ export class ClassificaComponent implements OnInit{
     })
   }
 
+  getSquadra(){
+    this.dialog.open(POPUPatletiComponent,{
+      minWidth:"30px",
+      data: this.Servizioatleti
+    })
+  }
    getnazioni(){
     // this.Apiservice.getNazione(this.langId).subscribe(res=>{
     //   this.Squadra = res
@@ -92,8 +107,14 @@ export class ClassificaComponent implements OnInit{
  
 
 getDati(){
-  this.classifica= this.Apiservice.getfakerisultati()
-  this.squadre= this.classifica.competitors
+  this.classifica = this.Apiservice.getfakerisultati()
+  this.squadre = this.classifica.competitors
+  this.sportId = this.classifica.competitions.sportId //prende il nome dello sport dalla funzione
+  this.countryId = this.classifica.countries.countryId //
+  //this.DatiAtleti = this.classifica.athletes.DatiAtleti
+  //this.AthletesId = this.classifica.competitions.imageVersion
+  this.dataSource = new MatTableDataSource(this.squadre)
+
   console.table("classifica",this.classifica)
   // this.api.getRisultati("name", "idsport").subscribe((res) => {
 

@@ -12,7 +12,9 @@ export class ApiService {
   private API_SQUADRE= 'https://therundown-therundown-v1.p.rapidapi.com/sports/2/teams'; //api di therundown
   private API_RISULTATI= 'https://allscores.p.rapidapi.com/api/allscores/results';
   private API_STATO= 'https://allscores.p.rapidapi.com/api/allscores/stats';
-  private API_ATLETI= 'https://allscores.p.rapidapi.com/api/allscores/top-athletes';
+  //private API_ATLETI= 'https://allscores.p.rapidapi.com/api/allscores/top-athletes';
+  private API_ATLETI2= 'https://allscores.p.rapidapi.com/api/allscores/competitor-squads';
+  private API_IMG_ATLETI= 'https://allscores.p.rapidapi.com/api/allscores/img/small/athlete/53414/version/12';
   private API_PUNTEGGI= 'https://allscores.p.rapidapi.com/api/allscores/custom-scores';
   private API_GIOCHI= 'https://allscores.p.rapidapi.com/api/allscores/games-scores';
   private API_CALENDARIO ='https://sofascores.p.rapidapi.com/v1/calendar/daily-unique-tournaments' //api di sofascore
@@ -117,12 +119,23 @@ export class ApiService {
   }
 
   getAtleta(langId:1,timezone: "America/Chicago", limit: number, sportType: number){ //api diverso allscores
-    return this.http.get<any>(this.API_ATLETI,{
+    return this.http.get<any>(this.API_ATLETI2,{
       params:{
         langId:langId,
         timezone:timezone,
         limit: limit,
         sportType: sportType
+        //withCount: withCount
+       },
+       headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
+      })
+  }
+
+  getImgAtleta(imageVersion: number, athleteId: number){ //api diverso allscores
+    return this.http.get<any>(this.API_IMG_ATLETI,{
+      params:{
+        imageVersion:imageVersion,
+        athleteId: athleteId
         //withCount: withCount
        },
        headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
@@ -330,7 +343,7 @@ export class ApiService {
           "sportId": 2,
           "symbolicName": "MEM",
           "type": 1
-        },
+        }, //
         {
           "color": "#E03A3E",
           "competitorNum": 0,
@@ -395,7 +408,7 @@ export class ApiService {
           "symbolicName": "LAC",
           "type": 1
         },
-        {
+        { //
           "color": "#0C2340",
           "competitorNum": 0,
           "countryId": 341,

@@ -14,9 +14,14 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     --warning:#f7e391;
     --success:#e0ffc4;
     --info:#a8cadc;
-    --dark:rgb(0, 0, 0);
+    --dark:rgb(129, 129, 129);
     --altezza-footer:90px;
-    --primary-hover:#461a74;
+    --primary-hover:#965ed2;
+    --secondary-hover:#741a4d;
+    --warning-hover:#ba7910;
+    --success-hover:#6a9b2a;
+    --info-hover: #637f8e;
+    --dark-hover: rgb(0, 0, 0);
 }
 
 .centrainlinea {

@@ -1,7 +1,27 @@
 .stilesporttxt{
-    font-size: 25px;
+    font-size: 15px;
     
     color: var(--primary);
     padding-top: 20px;
     
+}
+.stilesquadetxt{
+    font-size: 15px;
+    
+    color: var(--secondary);
+    padding-top: 20px;
+}
+
+.stileatltxt{
+    font-size: 15px;
+    
+    color: var(--success-hover);
+    padding-top: 20px;
+}
+
+.stilenatttxt{
+    font-size: 15px;
+    
+    color: var(--primary-hover);
+    padding-top: 20px;
 }

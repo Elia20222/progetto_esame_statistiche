@@ -35,6 +35,122 @@ export class ServiziocontriesService {
 countries = 
   [
     {
+      id: 324,
+      name: "USA (Colorado)"
+
+    },
+
+    {
+      id: 321,
+      name: "USA (Arizona)"
+
+    },
+
+    {
+      id: 339,
+      name: "USA (Massachusetts)"
+
+    },
+
+    {
+      id: 356,
+      name:  "USA (Pennsylvania)"
+
+    },
+
+    {
+      id: 323,
+      name:  "USA (California)" //sacramento
+
+    },
+
+    {
+      id: 323,
+      name: "California" //golden state warriors
+
+    },
+
+    {
+      id: 350,
+      name: "USA (New York)"
+
+    },
+
+    {
+      id: 327,
+      name: "USA (Florida)"
+
+    },
+
+    {
+      id: 323,
+      name: "USA (California)" //los angeles
+
+    },
+    
+    {
+      id: 360,
+      name: "USA (Florida)" //miami heat
+
+    },
+
+    {
+      id: 328,
+      name: "USA (California)" //Los Angeles Lakers
+
+    },
+
+    {
+      id: 323,
+      name: "USA (California)"
+
+    },
+
+    {
+      id: 360,
+      name: "USA (Tennesse)" 
+
+    },
+
+    {
+      id: 328,
+      name: "USA (Georgia)" 
+
+    },
+
+    {
+      id: 366,
+      name: "USA (Wisconsin)" 
+
+    },
+
+    {
+      id: 353,
+      name: "USA (Ohio)" 
+
+    },
+
+    {
+      id: 323,
+      name: "USA (California)" 
+
+    }, //398
+
+    {
+      id: 341,
+      name: "USA (Minnesota)" 
+
+    }, //398
+
+    {
+      id: 323,
+      name: "USA (New York)" 
+
+    }, //398
+    
+    
+
+    {
       "id": 1,
       "imageVersion": 1,
       "liveGames": 0,

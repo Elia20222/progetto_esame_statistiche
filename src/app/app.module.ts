@@ -28,6 +28,8 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { GareEComponent } from './components/gare-e/gare-e.component';
 import { GareIComponent } from './components/gare-i/gare-i.component';
+import { CambiopaginaclassificaComponent } from './cambiopaginaclassifica/cambiopaginaclassifica.component';
+import { POPUPatletiComponent } from './components/popupatleti/popupatleti.component';
 //import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 //import { MatTableModule } from '@angular/material/table';
 
@@ -46,6 +48,8 @@ import { GareIComponent } from './components/gare-i/gare-i.component';
     ChisiamoComponent,
     GareEComponent,
     GareIComponent,
+    CambiopaginaclassificaComponent,
+    POPUPatletiComponent,
     
     
     

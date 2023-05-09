@@ -30,7 +30,7 @@ export class ServizioclassificheService {
         case 9:
         return "Volleyball";
         default:
-          return "errore"
+          return "sport non trovato"
         } 
       }
     }

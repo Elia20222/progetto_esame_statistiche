@@ -1,10 +1,13 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ServizioatletiService } from 'src/app/servizioatleti.service';
-import { ClassificaComponent } from '../classifica/classifica.component';
 import { ApiService } from 'src/app/services/api.service';
 import { DatiAtleti } from 'src/app/dati-atleti';
+import { Validators } from '@angular/forms';
+import { Dialog } from '@angular/cdk/dialog';
+import { PopPupInfoGiocatoriComponent } from '../pop-pup-info-giocatori/pop-pup-info-giocatori.component';
+
 
 @Component({
   selector: 'app-popupatleti',
@@ -13,29 +16,82 @@ import { DatiAtleti } from 'src/app/dati-atleti';
 })
 
 export class POPUPatletiComponent {
-
-  DatiAtleti: DatiAtleti [] = []
-
+  DatiAtleti: DatiAtleti [] = [];
+  atletadellasquadra: DatiAtleti[] = [];
+  @Output() NuovoDatoAtleta: EventEmitter<any> = new EventEmitter;
+  displayedColumns: string[] = ['name', 'btn'];
+  datoatleta: DatiAtleti [] = []
   constructor(
-    // public MatDialogModule: MatDialogModule,
-    // public MatDialogRef: MatDialogModule,
+    public Dialog: Dialog,
     public Servizioatleti: ServizioatletiService,
-    //public Classifica:ClassificaComponent,
+    public dialog: MatDialog,
+    public MatDialogRef:MatDialogModule,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    // @Input() datoatleta: ServizioatletiService,
     private dialogRef: MatDialogRef<POPUPatletiComponent>,
-    @Inject(MAT_DIALOG_DATA) Data:any, 
+    
+
+    // @Input() Atleti: ServizioatletiService,
+    // @Output() Atletaemesso: EventEmitter<any> = new EventEmitter(),
+    // Data:any, 
     
     private api:ApiService
+    
     ){
+
+      // this.api.Atleti = this.MatDialogRef.athletes
+      // this.Atletaemesso = this.chiudi
       // this.DatiAtleti = this.DatiAtleti.athletes,
       // this.Servizioatleti.athletes = this.DatiAtleti.Servizioatleti,
       // this.DatiAtleti.name.athletes = this.DatiAtleti.DatiAtleti,
       this.DatiAtleti = this.Servizioatleti.athletes
+      this.api = this.Servizioatleti.athletes
+      
+      //this.DatiAtleti = this.athletes: ['sportType', Validators.required], 
+        
       
     }
   
+    // getgiocatori(element:any){
+
+    //   const datoatleta = this.Servizioatleti.Athletes;
+      
+      
+  //   //   for (let i = 0; i < datoatleta.length; i++) {
+  //   //   const element = datoatleta[i];
+  //   //   element.image,
+  //   //   element.age,
+  //   //   element.birthdate,
+  //   //   element.gender,
+  //   //   element.positions
+
+  //     // datoatleta = this.Servizioatleti.getcountrie((res:any)=>{
+  //     // this.Servizioatleti.Athletes
+  //     // })
+
+  //     this.DatiAtleti = this.Servizioatleti.athletes
+      
+      
+  //     // this.api.getAtleti(this.data.id).subscribe((res:any)=>{
+  //     //   this.Servizioatleti.Athletes = res
+        
+  //     //   // this.Servizioatleti.aprimodal(res)
+  //     //   //this.Servizioatleti.Athletes.id
+  //     // })
+      
+  //   }
+  // }
+
+  getinfo(Giocatore:any){
+    this.dialog.open(PopPupInfoGiocatoriComponent, {data: Giocatore})
     
+    
+  }
+
   chiudi(){
     //chiudo la modal
     this.dialogRef.close()
-  }
-}
+  }}
+
+
+

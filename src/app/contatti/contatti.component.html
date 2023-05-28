@@ -1,0 +1,91 @@
+ <div>
+    <section>
+    <div class="dimesione-body">
+        <div class="container">
+
+           
+            <h1 class="titolocontatti">Contattaci</h1>
+            <br>
+            <h3 class="dimesione-body">Lavora con noi, compilando i seguenti dati richiesti</h3>
+        </div>
+        <br>
+    </div>
+    <br>
+</section>
+
+<section class="section dimesione-body ">
+
+    <div class="container "></div>
+<br>
+        {{name}}
+
+        <form [formGroup]="form"(ngSubmit)="FormContatti()">
+
+
+            <div class="field allineaplaceholder">
+                <label class="label">Cognome</label>
+                <input type="text" name="cognome" class="input" formControlName="cognome" >
+            </div>
+            <br>
+            {{surname}}
+
+            <div class="field allineaplaceholder">
+                <label class="label">Nome</label>
+                <input type="text" name="nome" class="input" formControlName="nome" >
+            </div>
+            <br>
+            {{email}}
+
+            <div class="field allineaplaceholder">
+                <label class="label">Email</label>
+                <input type="email" name="email" class="input" formControlName="email">
+            </div>
+            <br>
+            {{message}}
+
+            <div class="field allineaplaceholder">
+                <label class="label">Il tuo messaggio:</label>
+                <textarea name="" class="textarea" formControlName="messaggio"></textarea>
+            </div>
+
+            <!-- <div class="field">Cv
+                <label class="label">messaggio..</label>
+                <textarea name="message" class="textarea"></textarea>
+            </div> -->
+
+            <button type="submit" class="button is-large is-warning allineainvio">
+                Invia
+            </button>
+            <br>
+            <br>
+            <div class=" col-10 main stilecontatti" matDialogContent>Seguici, Condividi e Contattaci su:
+                <br>
+                <div>
+                <h3 class="btn btn-success " (click)="getcontatti('whatsapp')">
+                    035 602 4892<i class="bi bi-whatsapp"></i>
+                </h3>
+                <h3 class="btn btn-primary" (click)="getcontatti('facebook')">
+                    @Easy4Sport_
+                   <i class="bi bi-facebook"></i>
+                </h3>
+                <h3 class="btn btn-danger" (click)="getcontatti('mail')">
+                    <i class="bi bi-envelope"></i>
+                </h3>
+                <h3 class="btn btn-warning" (click)="getcontatti('copy')"> <!-- copia il link -->
+                    <i class="bi bi-clipboard"></i>
+                </h3>
+            </div>
+            </div>
+            
+        </form>
+
+        
+</section>
+
+
+
+</div>
+
+<!-- <div matDialogActions>
+
+</div> -->

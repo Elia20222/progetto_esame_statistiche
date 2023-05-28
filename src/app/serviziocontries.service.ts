@@ -66,7 +66,7 @@ countries =
 
     {
       id: 323,
-      name: "California" //golden state warriors
+      name: "USA (California)" //golden state warriors
 
     },
 
@@ -143,10 +143,36 @@ countries =
     }, //398
 
     {
-      id: 323,
+      id: 350,
       name: "USA (New York)" 
 
     }, //398
+
+    
+    {
+      id: 350,
+      name: "USA (Oklahoma)" 
+
+    },
+    {
+      id:375,
+      name: "USA (Textas)" 
+
+    },
+    {
+      id:328,
+      name: "USA (Georgea)" 
+
+    },
+
+    {
+      id:305,
+      name: "Oklahoma City Thunder" 
+
+    },
+    
+
+    
     
     
 

@@ -19,8 +19,11 @@ export class HeaderComponent {
   
   squadre: Squadra[]=[];
 
-  constructor(private api:ApiService,
+  constructor(
+    private api:ApiService,
     private dialog: MatDialog) { }
+
+   
 
     openDialog() {
       this.dialog.open(DialogComponent, {
@@ -28,9 +31,7 @@ export class HeaderComponent {
       });
     }
 
-    
-
-
+   
   getDati(){
     this.classifica= this.api.getfakerisultati()
     this.squadre= this.classifica.competitors

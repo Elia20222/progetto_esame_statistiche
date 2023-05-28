@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Contatti } from '../contatti';
 
 
 @Injectable({
@@ -13,12 +14,16 @@ export class ApiService {
   private API_RISULTATI= 'https://allscores.p.rapidapi.com/api/allscores/results';
   private API_STATO= 'https://allscores.p.rapidapi.com/api/allscores/stats';
   //private API_ATLETI= 'https://allscores.p.rapidapi.com/api/allscores/top-athletes';
+
   private API_ATLETI2= 'https://allscores.p.rapidapi.com/api/allscores/competitor-squads';
   private API_IMG_ATLETI= 'https://allscores.p.rapidapi.com/api/allscores/img/small/athlete/53414/version/12';
   private API_PUNTEGGI= 'https://allscores.p.rapidapi.com/api/allscores/custom-scores';
+  private API_GARE = 'https://allscores.p.rapidapi.com/api/allscores/competitor-squads';
   private API_GIOCHI= 'https://allscores.p.rapidapi.com/api/allscores/games-scores';
-  private API_CALENDARIO ='https://sofascores.p.rapidapi.com/v1/calendar/daily-unique-tournaments' //api di sofascore
-   constructor(private http: HttpClient) { }
+  private API_CALENDARIO ='https://sofascores.p.rapidapi.com/v1/calendar/daily-unique-tournaments'; //api di sofascore
+  private API_CONTATTI= 'http://35.158.159.61:3333/contatti/'
+  
+  constructor(private http: HttpClient) { }
 
 
   httpHeader = {
@@ -27,6 +32,17 @@ export class ApiService {
     'X-RapidAPI-Host': 'allscores.p.rapidapi.com'
     })
   }
+
+  postcontatti(contatto:Contatti){
+    return this.http.post(this.API_CONTATTI,
+      contatto,
+    )
+  }
+
+  // getContatti(name:Name){
+  //   return this.http.get<any>(this.API_URL + 'nome/post/' + post.id)
+  // }
+
   getSquadre():Observable<any>{
 
     return this.http.get<any>('https://allscores.p.rapidapi.com/api/allscores/results', {
@@ -109,7 +125,7 @@ export class ApiService {
     return this.http.get<any>(this.API_PUNTEGGI,{
       params:{
         langId:langId,
-        timezone:timezone,
+        timezone:"America/Chicago",
         startDate:startDate,
         endDate:endDate
         //withCount: withCount
@@ -118,13 +134,29 @@ export class ApiService {
       })
   }
 
-  getAtleta(langId:1,timezone: "America/Chicago", limit: number, sportType: number){ //api diverso allscores
+  getGare( competitorId:any){
+    return this.http.get<any>(this.API_GARE,{
+      params:{
+        competitorId: competitorId,
+        langId:1,
+        
+        
+        
+        //withCount: withCount
+       },
+       headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
+      })
+  }
+
+  getAtleti( paramscompetitor: number){ //api diverso allscores
     return this.http.get<any>(this.API_ATLETI2,{
       params:{
-        langId:langId,
-        timezone:timezone,
-        limit: limit,
-        sportType: sportType
+        competitorId: paramscompetitor,
+        langId:1,
+        timezone:"America/Chicago",
+        limit: 1,
+        
+        
         //withCount: withCount
        },
        headers:{'X-RapidAPI-Key': '56fe11d70emsh95a39e1809ef2a7p1ffc3ajsn2f279bbdd8b8'}
@@ -143,7 +175,8 @@ export class ApiService {
   }
 
 
-  getfakerisultati(){
+  
+getfakerisultati(){
     return {
       "bookmakers": [
         {
@@ -434,6 +467,22 @@ export class ApiService {
           "mainCompetitionId": 103,
           "name": "Brooklyn Nets",
           "nameForURL": "brooklyn-nets",
+          "popularityRank": 1050,
+          "shortName": "Nets",
+          "sportId": 2,
+          "symbolicName": "BKN",
+          "type": 1
+        },
+        {
+          "color": "#000000",
+          "competitorNum": 0,
+          "countryId": 305,
+          "hasSquad": true,
+          "id": 1302,
+          "imageVersion": 1,
+          "mainCompetitionId": 103,
+          "name": "Oklahoma City Thunder",
+          "nameForURL": "oklahoma-city-thunder",
           "popularityRank": 1050,
           "shortName": "Nets",
           "sportId": 2,

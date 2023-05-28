@@ -13,9 +13,10 @@
       <!-- <span class="stileatltxt">{{Servizioatleti.getGiocatori(element.imageVersion)}}</span>
       <span class="stileatltxt">{{Servizioatleti.getGiocatori(element.athletes)}}</span> -->
       <div class="d-inline ml-3">
-        <!-- <button class="btn btn-warning" (click)="condividi()">
-            <i class="bi bi-share"></i>
-        </button> -->
+        <button class="btn btn-warning" (click)="apriModal(element.id)">
+          Guarda la squadra
+          <i class="bi bi-people-fill"></i>
+        </button>
     </div>
       </td>
       
@@ -42,16 +43,19 @@
   
   <ng-container matColumnDef="SQUADRE">
     <th mat-header-cell *matHeaderCellDef> SQUADRE </th>
-    <td mat-cell *matCellDef="let element"> <span class="stilesquadetxt">{{element.name}}</span>
+    <td mat-cell *matCellDef="let element">
+      <span class="stilesquadetxt">{{element.name}}</span>
       <!--<span>{{classifica.getlistasquadre(element.name)}}</span>-->
     </td>
   </ng-container>
 
+
   <ng-container matColumnDef="VITTORIE">
-    <th mat-header-cell *matHeaderCellDef> TORNEI SVOLTI </th>
-    <td mat-cell *matCellDef="let element"> {{element.totalGames}} </td>
+    <th mat-header-cell *matHeaderCellDef> Gare </th>
+    <td mat-cell *matCellDef="let element"> <h3 [routerLink]="'/gare/'+ element.id"> visualizza la gara </h3> </td>
   </ng-container>
 
+  
   <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
   <tr mat-row *matRowDef="let row; columns: displayColumn;"></tr>
 </table>

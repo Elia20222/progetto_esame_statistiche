@@ -11,10 +11,12 @@ import { ClassificaComponent } from './components/classifica/classifica.componen
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { ApiService } from 'src/app/services/api.service';
 import { DataEOraComponent } from './components/data-eora/data-eora.component';
 import { MatTableModule } from '@angular/material/table';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 //import { MatDateFormats } from '@angular/material/core';
 //import { MatDatePicker }
 import { MatNativeDateModule } from '@angular/material/core';
@@ -23,13 +25,19 @@ import { PunteggiovittoriaComponent } from './components/punteggiovittoria/punte
 import { RicercaComponent } from './ricerca/ricerca.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { ChisiamoComponent } from './chisiamo/chisiamo.component';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { GareEComponent } from './components/gare-e/gare-e.component';
-import { GareIComponent } from './components/gare-i/gare-i.component';
 import { CambiopaginaclassificaComponent } from './cambiopaginaclassifica/cambiopaginaclassifica.component';
 import { POPUPatletiComponent } from './components/popupatleti/popupatleti.component';
+import { ContattiComponent } from './contatti/contatti.component';
+import { PopupcandidaturaComponent } from './components/popupcandidatura/popupcandidatura.component';
+import { CondividieseguiciComponent } from './components/condividieseguici/condividieseguici.component';
+import {MatSidenavModule} from '@angular/material/sidenav'; //usarlo nel bottone atleta
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { PopPupInfoGiocatoriComponent } from './components/pop-pup-info-giocatori/pop-pup-info-giocatori.component';
+import { HomeComponent } from './components/home/home.component'; //usarlo nel bottone atleta
 //import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 //import { MatTableModule } from '@angular/material/table';
 
@@ -47,12 +55,14 @@ import { POPUPatletiComponent } from './components/popupatleti/popupatleti.compo
     DialogComponent,
     ChisiamoComponent,
     GareEComponent,
-    GareIComponent,
     CambiopaginaclassificaComponent,
     POPUPatletiComponent,
-    
-    
-    
+    ContattiComponent,
+    PopupcandidaturaComponent,
+    CondividieseguiciComponent,
+    PopPupInfoGiocatoriComponent,
+    HomeComponent,
+
     
     
   ],
@@ -68,6 +78,11 @@ import { POPUPatletiComponent } from './components/popupatleti/popupatleti.compo
     MatNativeDateModule,
     MatButtonModule,
     MatProgressBarModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatToolbarModule
+    
+    
     
     
     

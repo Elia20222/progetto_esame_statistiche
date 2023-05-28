@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ApiService } from '../services/api.service';
-
+//import { AppRoutingModule } from './app-routing.module';
 @Component({
   selector: 'app-ricerca',
   templateUrl: './ricerca.component.html',
@@ -12,7 +12,7 @@ export class RicercaComponent {
   datiSport: any [] = []; // dichiaro l'oggetto sport inizializzato da array che contirnr array
   @Output() cambioSport: EventEmitter<any> = new EventEmitter
   
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,){} //public router: AppRoutingModule) { }
   
   sportScelto(sport: string){
     this.cambioSport.emit(sport) // 
@@ -25,6 +25,11 @@ export class RicercaComponent {
     //})
     this.ricerca=ricerca
     console.log(ricerca)
+  }
+
+  ricercadato(){
+    console.log(this.cerca)
+    //this.router.navigate(['/classifica'+this.ricerca])
   }
 
  

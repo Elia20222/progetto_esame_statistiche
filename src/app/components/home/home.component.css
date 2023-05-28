@@ -1,0 +1,49 @@
+.titolopagina{
+    font-size: 70px;
+    padding: 70px;
+    size-adjust:center;
+    text-align: center;
+    float:center ;
+    padding-left: 18%;
+}
+.styleintro{
+    text-align: center;
+    font-size: 40px;
+    /* padding: center; */
+    justify-self:center;
+    color: var(--primary);
+    padding-left: 18%;
+}
+.txtdescrizione{
+    text-align: center;
+    font-size: 20px;
+    justify-self:center;
+    color: var(--primary);
+    padding: 2%;
+    padding-bottom: 9%;
+}
+.imgintro{
+    
+    width:200px !important; width /**/:201px;
+    height:200px !important; height /**/: 201px;
+    border-radius: 20%;
+    justify-content: center;
+    margin-left: 2%;
+    
+    
+    
+}
+/* 
+.scopribottone{
+    justify-content:left;
+    margin: 5%;
+    align-content: baseline;
+} */
+
+
+.txtImg{
+    margin-left:2% ;
+    display:inline-block;
+    float:inline-start;
+    text-decoration: underline;
+}

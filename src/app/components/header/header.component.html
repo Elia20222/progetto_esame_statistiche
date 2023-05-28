@@ -4,8 +4,8 @@
     </div>
     <div class= "col-10 centrainlinea">
         
-        <div class="" routerLink="/"> <!-- nome del componente HOME -->
-            <button type="button" class=" btn btn-outline-dark p-4"> <b>Chi Siamo?</b> </button>
+        <div [routerLink]="'/chisiamo'"> <!-- nome del componente HOME -->
+            <button type="button" class=" btn btn-outline-dark p-4" [routerLink]="'/chisiamo'"> <b>Chi Siamo?</b> </button>
         </div>
         
         <div class="" routerLink="/classifiche">
@@ -15,11 +15,11 @@
               <!--<app-classifica (cambioSport)="getDati()"></app-classifica> <b>Classifiche</b> </button> -->
              <!--<button type="button" class=" btn btn-outline-warning p-4" >  <b>Classifiche</b> </button> -->
         </div>
-        <div class="" routerLink="/gareestive"> 
+        <!-- <div class="" routerLink="/gareestive"> 
             <button type="button" class=" btn btn-outline-danger p-4" [routerLink]="'/gare'"> <b>Gare</b> </button>
             
-        </div>
-        <div class="" routerLink="/gareinvernali"> 
+        </div> -->
+        <div class="" routerLink="/contatti"> 
             <button type="button" class=" btn btn-outline-primary p-4" [routerLink]="'/contatti'"> <b>Contatti</b> </button>
         </div>
 

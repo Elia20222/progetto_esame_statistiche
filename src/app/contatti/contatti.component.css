@@ -1,0 +1,58 @@
+.dimesione-body{
+    
+    background-color: var(--info-hover);
+    padding-left: 50px;
+    padding-inline: 20%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+}
+.titolocontatti{
+
+    font-size:45px;
+    padding-top: 6%;
+}
+
+
+
+.allineainvio{
+    text-align: center;
+    width: 70px;
+    float: initial;
+    margin: 2%;
+    
+}
+
+.allineaplaceholder{
+    width: 30px;
+    text-align: center;
+    justify-content: center;
+    padding-inline: 40%;
+    
+    
+}
+.navbar{
+    background-color: aquamarine;
+    padding: 15px;
+    
+}
+
+.navbar a {
+    color:azure
+}
+
+.stilecontatti{
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 10%;
+    padding-left: 36%;
+
+    
+
+}
+
+.buttonspace{
+    padding-bottom: 50% ;
+}
+
+

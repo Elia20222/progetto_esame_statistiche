@@ -1,5 +1,6 @@
 html, body { background-color: var(--info);
-    color:var(--secondary) }
+    color:var(--secondary);
+height: 100%; }
 body { 
 padding-bottom: calc(var(--altezza-footer) + 30px);
 margin: 0; 
@@ -11,15 +12,15 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 :root{
     --primary:#3956e6;
     --secondary:#ec3232;
-    --warning:#f7e391;
+    --warning:#fef3c9;
     --success:#e0ffc4;
-    --info:#a8cadc;
+    --info:#fff4f4;
     --dark:rgb(129, 129, 129);
     --altezza-footer:90px;
-    --primary-hover:#965ed2;
+    --primary-hover:#ebd8ff;
     --secondary-hover:#741a4d;
     --warning-hover:#ba7910;
-    --success-hover:#6a9b2a;
+    --success-hover:#019144;
     --info-hover: #637f8e;
     --dark-hover: rgb(0, 0, 0);
 }

@@ -2,22 +2,36 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClassificaComponent } from './components/classifica/classifica.component';
 import { GareEComponent } from './components/gare-e/gare-e.component';
-import { GareIComponent } from './components/gare-i/gare-i.component';
+import { ContattiComponent } from './contatti/contatti.component';
+import { ChisiamoComponent } from './chisiamo/chisiamo.component';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
+
   {
-    path:'classifiche', //se metto /classifiche o /classifiche/ non funziona
+    path:'', 
+    component:HomeComponent
+  },
+
+  {
+    path:'classifiche', 
     component:ClassificaComponent
   },
 
   {
-    path:'contatti', //se metto /classifiche o /classifiche/ non funziona
-    component:GareIComponent 
+    path:'contatti', 
+    component:ContattiComponent
   },
 
   {
-    path:'gare', //se metto /classifiche o /classifiche/ non funziona
+    path:'gare/:id', 
     component:GareEComponent
+  },
+
+  {
+    path:'chisiamo', 
+    component:ChisiamoComponent
   },
 ];
 

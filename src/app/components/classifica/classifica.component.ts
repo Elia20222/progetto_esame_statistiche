@@ -26,7 +26,7 @@ export class ClassificaComponent implements OnInit{
 
   Squadra!: Squadra
   squadre: Squadra [] = []
-  data:any
+  data: any
   public dataSource: any;
   competitionId: number = 103;
   langId: number [] = []
@@ -35,6 +35,7 @@ export class ClassificaComponent implements OnInit{
   countryId: number | undefined
   AthletesId: number | undefined
   public displayColumn: string []= ['TOP', 'SPORTNAME', 'SQUADRE', 'ATLETI', 'NAZIONE', 'VITTORIE']
+  matDialogActions: any;
 
   constructor(
     private Apiservice : ApiService,
@@ -60,7 +61,7 @@ export class ClassificaComponent implements OnInit{
   //   this.getlistasquadre();
   }
   getlistasquadre(){
-    this.Apiservice.getRisultati(this.competitionId).subscribe(res=>{
+      this.Apiservice.getRisultati(this.competitionId).subscribe(res=>{
       this.Squadra = res
       this.dataSource = new MatTableDataSource(res.competitors)
       this.Squadra.sportType 
@@ -69,7 +70,7 @@ export class ClassificaComponent implements OnInit{
   }
 
   getSquadra(){
-    this.dialog.open(POPUPatletiComponent,{
+      this.dialog.open(POPUPatletiComponent,{
       minWidth:"30px",
       data: this.Servizioatleti
     })
@@ -104,7 +105,19 @@ export class ClassificaComponent implements OnInit{
     //da_data: number
     //form: FormGroup;
 
- 
+    apriModal(id:number) {
+      //data indica se apro una squadra tipo
+      this.dialog.open(POPUPatletiComponent, {
+        minWidth: "50%",
+        data: {
+          id:id,
+          //Servizioatleti: ServizioatletiService
+          // Atleti: ServizioatletiService,
+          // Atletaemesso:EventEmitter,
+        }
+        
+      })
+    }
 
 getDati(){
   this.classifica = this.Apiservice.getfakerisultati()
@@ -112,10 +125,12 @@ getDati(){
   this.sportId = this.classifica.competitions.sportId //prende il nome dello sport dalla funzione
   this.countryId = this.classifica.countries.countryId //
   //this.DatiAtleti = this.classifica.athletes.DatiAtleti
-  //this.AthletesId = this.classifica.competitions.imageVersion
+  // this.AthletesId = this.classifica.competitions.imageVersion
+  // this.AthletesId = this.classifica.athletes.AthletesId
   this.dataSource = new MatTableDataSource(this.squadre)
-
   console.table("classifica",this.classifica)
+
+  
   // this.api.getRisultati("name", "idsport").subscribe((res) => {
 
   //   //console.log(res)
@@ -137,7 +152,10 @@ Submit(){
   //var da_data: Date = new Date (this.form.value.dataInizio)
   //var a_data: Date = new Date (this.form.value.dataFine)
 }
-
+confermaedesci()
+  {
+    this.matDialogActions.close("")
+  }
 
 esci(){
   // 

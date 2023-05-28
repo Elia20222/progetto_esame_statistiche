@@ -1,1 +1,52 @@
-<p>gare-e works!</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> 
+
+ 
+  <ng-container matColumnDef="località">
+    <th mat-header-cell *matHeaderCellDef> Località </th>
+    <td mat-cell *matCellDef="let element"> {{element.countryId}} </td>
+  </ng-container>
+
+  
+    <ng-container matColumnDef="squadra1">
+      <th mat-header-cell *matHeaderCellDef> Squadra 1 </th>
+      <td mat-cell *matCellDef="let element"> {{element.competitors[0].name}} </td>
+    </ng-container>
+  
+     
+     <ng-container matColumnDef="squadra2">
+      <th mat-header-cell *matHeaderCellDef> Squadra 2 </th>
+      <td mat-cell *matCellDef="let element">{{element.awayCompetitor[1].name}}</td>
+
+</ng-container>
+<ng-container matColumnDef="punteggioresquadra1">
+  <th mat-header-cell *matHeaderCellDef> punteggio 1 </th>
+  <td mat-cell *matCellDef="let element">{{element.popularityRank}}
+
+<!-- <div class="d-inline ml-3">
+<button class="btn btn-warning" (click)="apriModal(element.id)">
+Guarda la squadra
+<i class="bi bi-people-fill"></i>
+</button>
+</div> -->
+</td>
+
+</ng-container>
+
+            <ng-container matColumnDef="punteggioresquadra2">
+              <th mat-header-cell *matHeaderCellDef> punteggio 2 </th>
+              <td mat-cell *matCellDef="let element">{{element.popularityRank}}
+    
+        <!-- <div class="d-inline ml-3">
+          <button class="btn btn-warning" (click)="apriModal(element.id)">
+            Guarda la squadra
+            <i class="bi bi-people-fill"></i>
+          </button>
+      </div> -->
+        </td>
+        
+    </ng-container>
+  
+    
+    <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumn;"></tr>
+   </table> 

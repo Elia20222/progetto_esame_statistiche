@@ -1,0 +1,15 @@
+.posizione-2{
+    position:sticky;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+
+    
+}
+
+.titolopagina{
+    text-align:center;
+    padding: 60px;
+    font-size: 33px;
+    
+}

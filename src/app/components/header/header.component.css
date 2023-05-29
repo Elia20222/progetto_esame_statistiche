@@ -1,3 +1,8 @@
+.titlename{
+    padding-left: 5%;
+    float: left;
+}
+
 .distanziaecentralizza{
     display: flex;
     justify-content: space-around;
@@ -19,6 +24,7 @@
 {
 width: 135px;
 border-radius: 65%;
+padding-left: 5%;
 }
 
 .button{
